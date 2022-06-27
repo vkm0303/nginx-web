@@ -4,19 +4,17 @@ import {
   ProFormDatePicker,
   ProFormText,
 } from '@ant-design/pro-components';
-import { message } from 'antd';
+import { Card, message } from 'antd';
 import moment from 'moment';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
-import styles from './index.less';
 
 export default () => {
   const formRef = useRef<ProFormInstance>();
 
   const onFill = () => {
     formRef?.current?.setFieldsValue({
-      name: '张三',
-      company: '蚂蚁金服',
+      path: '/etc/nginx/conf/nginx.conf',
     });
   };
 
@@ -36,13 +34,22 @@ export default () => {
       console.log('校验表单并返回格式化后的所有数据：', values);
     });
   };
+
+  useEffect(() => onFill(), []);
+
   return (
-    <PageContainer
-      className={styles.pageContainer}
-      content={
+    <PageContainer ghost>
+      <Card>
         <ProForm
           formRef={formRef}
-          submitter={{ render: (props, dom) => dom[1] }}
+          grid={true}
+          rowProps={{
+            gutter: [16, 0],
+          }}
+          submitter={{
+            searchConfig: { submitText: '保存' },
+            render: (props, dom) => dom[1],
+          }}
           onFinish={async (values) => {
             console.log(values);
             message.success('提交成功');
@@ -50,22 +57,20 @@ export default () => {
           }}
         >
           <ProFormText
-            width="lg"
+            colProps={{ span: 10 }}
             name="path"
             label="nginx配置文件路径"
-            required={true}
             placeholder="请输入配置文件路径"
+            required={true}
           />
-
-          <ProFormText
-            width="md"
-            name="company"
-            label="我方公司名称"
-            placeholder="请输入名称"
+          <ProFormDatePicker
+            name="date"
+            label="日期"
+            colProps={{ span: 4, offset: 1 }}
+            initialValue={moment('2021-08-09')}
           />
-          <ProFormDatePicker name="date" initialValue={moment('2021-08-09')} />
         </ProForm>
-      }
-    ></PageContainer>
+      </Card>
+    </PageContainer>
   );
 };

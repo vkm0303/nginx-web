@@ -1,35 +1,13 @@
-import {
-  AlipayCircleOutlined,
-  LockOutlined,
-  MobileOutlined,
-  TaobaoCircleOutlined,
-  UserOutlined,
-  WeiboCircleOutlined,
-} from '@ant-design/icons';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import {
   LoginForm,
-  ProFormCaptcha,
   ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
-import { message, Space, Tabs } from 'antd';
-import type { CSSProperties } from 'react';
-import { useState } from 'react';
-
-type LoginType = 'phone' | 'account';
-
-const iconStyles: CSSProperties = {
-  marginLeft: '16px',
-  color: 'rgba(0, 0, 0, 0.2)',
-  fontSize: '24px',
-  verticalAlign: 'middle',
-  cursor: 'pointer',
-};
 
 export default () => {
-  const [loginType, setLoginType] = useState<LoginType>('phone');
   return (
-    <div style={{ backgroundColor: 'white' }}>
+    <div className="center-vertically" style={{ backgroundColor: '#fff' }}>
       <LoginForm
         logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
         title="E-Nginx"
