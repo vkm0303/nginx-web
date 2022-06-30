@@ -8,6 +8,6 @@ export default defineConfig({
     layout: 'side',
   },
   routes: routes,
-  mfsu: {},
+  // mfsu: {},
   // fastRefresh: {},
 });

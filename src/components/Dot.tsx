@@ -23,11 +23,9 @@ export default (props: DotPropsType) => {
   return (
     <div
       style={{
-        position: 'relative',
+        display: 'inline-block',
         width: size,
         height: size,
-        top: '50%',
-        transform: 'translateY(-50%)',
         borderRadius: '50%',
         backgroundColor: props.color || '#50b87c',
       }}
