@@ -50,10 +50,10 @@ const option: EChartsOption = {
   ],
   grid: [
     {
-      top: '10%',
-      left: '5%',
-      right: '5%',
-      bottom: '10%',
+      top: '8%',
+      left: '8%',
+      right: '8%',
+      bottom: '8%',
     },
   ],
 };
@@ -78,7 +78,7 @@ export default (props: any) => {
   return (
     <div
       id={props.id}
-      style={{ width: props.width, height: props.height || 400 }}
+      style={{ width: props.width, height: props.height || 250 }}
     ></div>
   );
 };

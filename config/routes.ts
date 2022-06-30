@@ -16,9 +16,15 @@ export default [
     component: '@/pages/Dashboard/index',
   },
   {
+    path: '/website',
+    name: '站点管理',
+    // wrappers: ['@/wrappers/auth'],
+    component: '@/pages/WebsiteManager/index',
+  },
+  {
     path: '/project-config',
     name: '项目配置',
-    // wrappers: ['@/wrappers/auth'],
+    wrappers: ['@/wrappers/auth'],
     component: '@/pages/ProjectConfig/index',
   },
   { component: '@/pages/404' },
