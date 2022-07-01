@@ -16,8 +16,13 @@ import { RedoOutlined } from '@ant-design/icons';
 import LineChart from '@/components/LineChart';
 import Dot from '@/components/dot';
 import styles from './index.less';
+import { useEffect } from 'react';
+import status from '@/api/status';
 
 export default () => {
+  useEffect(() => {
+    status.getNginxStatus().then((res) => console.log(res));
+  }, []);
   return (
     <PageContainer ghost>
       <ProCard
